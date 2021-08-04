@@ -1,0 +1,70 @@
+@import "variables";
+.stats {
+    align-self: center;
+    .point {
+        background-color: $textColor;
+        color: $bg;
+        // width: 420px;
+        // max-width: 500px;
+        min-width: 310px;
+        min-height: 60px;
+        border-radius: 20px;
+        display: grid;
+        grid-template-areas:
+            "a b"
+            "a b"
+            "a d"
+            "a d";
+        align-items: start;
+        #point_illus {
+            grid-area: a;
+            align-self: center;
+            margin-left: 7px;
+        }
+        #point_title {
+            grid-area: b;
+            font-weight: bold;
+            font-size: $fontMini;
+            margin-top: 5px;
+            margin-left: 15px;
+        }
+        #point_description {
+            grid-area: d;
+            font-size: $fontMini;
+            color: $bg;
+            margin-bottom: 5px;
+            margin-right: 20px;
+            margin-left: 15px;
+        }
+        @media only screen and (max-width: 660px) {
+            // max-width: 100%;
+            width: 100px;
+            height: 90px;
+        }
+    }
+    .point.red {
+        grid-area: a;
+        justify-self: start;
+        #point_title {
+            color: $featherColorPink;
+        }
+    }
+    .point.purple {
+        grid-area: d;
+        justify-self: end;
+        #point_title {
+            color: #694370;
+        }
+        @media only screen and (max-width: 900px) {
+            justify-self: start;
+            grid-area: c;
+        }
+    }
+    .point.green {
+        grid-area: e;
+        justify-self: start;
+        #point_title {
+            color: #43704d;
+        }
+    }
+}

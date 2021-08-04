@@ -1,0 +1,90 @@
+@import "variables";
+@import "dashboard";
+@import "splash";
+@import "stats";
+@import "cta";
+@import "form";
+@import "canva";
+/* inter-300 - latin */
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+    src: local(""), url("../fonts/inter-v3-latin-300.woff2") format("woff2"); /* Legacy iOS */
+}
+/* inter-200 - latin */
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 200;
+    src: local(""), url("../fonts/inter-v3-latin-200.woff2") format("woff2"); /* Legacy iOS */
+}
+/* inter-regular - latin */
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""), url("../fonts/inter-v3-latin-regular.woff2") format("woff2"); /* Legacy iOS */
+}
+/* inter-700 - latin */
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    src: local(""), url("../fonts/inter-v3-latin-700.woff2") format("woff2"); /* Legacy iOS */
+}
+/* inter-900 - latin */
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 900;
+    src: local(""), url("../fonts/inter-v3-latin-900.woff2") format("woff2"); /* Legacy iOS */
+}
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+body {
+    color: $textColor;
+    background-color: $bg;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+    .screenCell {
+        width: 100vw - ($margins * 2);
+        max-width: 1418px;
+        margin: 0px $margins 120px $margins;
+        height: 100vh;
+        min-height: 700px;
+        max-height: 730px;
+        scroll-behavior: smooth;
+        text-rendering: optimizeSpeed;
+
+        display: grid;
+        grid-template-areas:
+            "a a a a b b b b"
+            "a a a a b b b b"
+            "c c c c d d d d"
+            "c c c c d d d d"
+            "e e e e f f f f"
+            "e e e e f f f f";
+        align-items: start;
+    }
+    #page_wrapper {
+        margin: 0;
+        max-width: 1440px;
+        width: 100%;
+        grid-template-columns: 100%;
+        @media only screen and (min-width: 1440px) {
+            margin: 0 auto 0 auto;
+            max-width: 1440px;
+            width: 100%;
+        }
+    }
+}
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}

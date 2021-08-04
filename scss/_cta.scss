@@ -1,0 +1,98 @@
+.cta {
+    #cta_container {
+        grid-area: e;
+        width: 50%;
+        display: grid;
+        grid-template-areas:
+            "a a b b"
+            "c c d d"
+            "e e f f";
+        align-items: start;
+        grid-gap: 30px;
+        #logo {
+            grid-area: a;
+            margin-bottom: 15px;
+        }
+        #cta_text {
+            grid-area: c;
+            font-size: $fontSmall;
+        }
+        button {
+            grid-area: e;
+            justify-self: start;
+            width: clamp(160px, 180px, 12.5vw);
+            height: 60px;
+
+            font-size: clamp(18px, 22px, 27px);
+
+            border-radius: 30px;
+            border: 1px solid rgba(255, 92, 92, 0.25);
+            background: $featherColorPink;
+            color: $textColor;
+
+            // animation
+            display: inline-block;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $featherColorPink;
+                border-radius: 30px;
+                z-index: -2;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0%;
+                height: 100%;
+                background-color: #ffe3e6b6;
+
+                transition: all 0.3s;
+                z-index: -1;
+                border-radius: 30px;
+            }
+            &:hover {
+                color: $bg;
+                &:before {
+                    width: 100%;
+                }
+            }
+            &:hover > svg > path {
+                fill: $bg;
+            }
+
+            transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        button:hover {
+            transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            background: #ffffff;
+            box-shadow: 0px 2px 4px rgba(255, 92, 92, 0.2), 0px 4px 5px 5px rgba(255, 92, 92, 0.05),
+                0px 4px 4px rgba(255, 92, 92, 0.05);
+            border-radius: 30px;
+        }
+        button#butt_contact_form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 60px;
+            svg {
+                width: 24px;
+                fill: $textColor;
+            }
+            &:hover svg {
+                transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+                fill: $bg;
+            }
+        }
+    }
+}

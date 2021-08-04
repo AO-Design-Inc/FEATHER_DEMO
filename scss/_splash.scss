@@ -1,0 +1,24 @@
+.splash {
+    #splash_text{
+        grid-area: c;
+        align-self: center;
+        text-align: right;
+        width: 50%;
+        margin-top: 90px;
+        @media only screen and (max-width: 900px) {
+            text-align: left;
+        }
+        #splash_text_small {
+            font-weight: 300;
+            font-size: $fontMini;
+        }
+        #splash_text_large {
+            font-weight: 900;
+            font-size: $fontBig * 1.4;
+            line-height: 100%;
+            @media only screen and (max-width: 900px) {
+                font-size: 5.18rem * 1.1;
+            }
+        }
+    }
+}
