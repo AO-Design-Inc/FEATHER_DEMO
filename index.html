@@ -37,14 +37,10 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
-        integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
-        crossorigin="anonymous" defer>
-        </script>
     <title>Document</title>
 </head>
 
-<body>
+<body onload="main();">
     <div id="page_wrapper">
         <div class="dashboard">
             <div id="logo">
@@ -74,8 +70,12 @@
                 </button>
             </div>
         </div>
-        <canvas width="100%" height="100%" id="phone" class="c">
+        <canvas width="1439px" height="692px" id="canvas" class="c">
         </canvas>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
+            integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
+            crossorigin="anonymous" defer></script>
+        <script src="./GL/box.js"></script>
         <div class="screenCell splash">
             <div id="splash_text">
                 <div id="splash_text_small">
@@ -158,17 +158,5 @@
         </div>
     </div>
 </body>
-<script type="module">
-    var Module = {
-        print: (function () {
-            var element = document.getElementById('output');
-            return function (text) {
-                element.innerHTML += text.replace('\n', '<br>', 'g') + '<br>';
-            };
-        })(),
-        canvas: document.getElementById('canvas')
-    };
-</script>
-<script src="./GL/index.js"></script>
 
 </html>
