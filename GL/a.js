@@ -2,7 +2,9 @@
 
 // This is not a full .obj parser.
 // see http://paulbourke.net/dataformats/obj/
-
+Number.prototype.map = function (in_min, in_max, out_min, out_max) {
+  return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
 function parseOBJ(text) {
   // because indices are base 1 let's just fill in the 0th data
   const objPositions = [[0, 0, 0]];
@@ -205,7 +207,7 @@ async function main() {
 
   void main () {
     vec3 normal = normalize(v_normal);
-    float fakeLight = dot(u_lightDirection, normal) * .5 + .5;
+    float fakeLight = dot(u_lightDirection, normal) * .15 + .15;
     vec4 diffuse = u_diffuse * v_color;
     gl_FragColor = vec4(diffuse.rgb * fakeLight, diffuse.a);
   }
@@ -288,15 +290,10 @@ async function main() {
       extents.min,
       m4.scaleVector(range, 0.5)),
     -1);
-  const cameraTarget = [0, 0, 0];
+  let cameraTarget = [-0.1, 0.05, 0];
   // figure out how far away to move the camera so we can likely
   // see the object.
   const radius = m4.length(range) * 1.2;
-  const cameraPosition = m4.addVectors(cameraTarget, [
-    0,
-    0,
-    radius,
-  ]);
   // Set zNear and zFar to something hopefully appropriate
   // for the size of this object.
   const zNear = radius / 100;
@@ -305,9 +302,19 @@ async function main() {
   function degToRad(deg) {
     return deg * Math.PI / 180;
   }
-
   function render(time) {
     time *= 0.001;  // convert to seconds
+    let height = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.clientHeight,
+      document.documentElement.scrollHeight,
+      document.documentElement.offsetHeight) - window.innerHeight;
+    const cameraPosition = m4.addVectors(cameraTarget, [
+      0,
+      0,
+      radius - (window.scrollY).map(0, height, 0, 1.89),
+    ]);
 
     webglUtils.resizeCanvasToDisplaySize(gl.canvas);
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
@@ -339,7 +346,8 @@ async function main() {
 
     // compute the world matrix once since all parts
     // are at the same space.
-    let u_world = m4.yRotation(time/2);
+    console.log((window.scrollY).map(0, height, 0, 8))
+    let u_world = m4.yRotation((window.scrollY).map(0, height, 0, 6.5));
     u_world = m4.translate(u_world, ...objOffset);
 
     for (const { bufferInfo, material } of parts) {

@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "variables";
 @import "dashboard";
 @import "splash";
@@ -51,10 +52,11 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Inter";
+    // max-width: 1440px / 2;
     .screenCell {
         width: 100vw - ($margins * 2);
-        max-width: 1418px;
-        margin: 0px $margins 120px $margins;
+        max-width: 1440px;
+        margin: 0px $margins 240px $margins;
         height: 100vh;
         min-height: 700px;
         max-height: 730px;
@@ -70,16 +72,18 @@ body {
             "e e e e f f f f"
             "e e e e f f f f";
         align-items: start;
+        @media only screen and (min-width: 1450px) {
+            margin: 0px 60px 240px 60px
+        }
     }
     #page_wrapper {
         margin: 0;
-        max-width: 1440px;
+        // max-width: 1440px;
         width: 100%;
         grid-template-columns: 100%;
         @media only screen and (min-width: 1440px) {
             margin: 0 auto 0 auto;
             max-width: 1440px;
-            width: 100%;
         }
     }
 }
