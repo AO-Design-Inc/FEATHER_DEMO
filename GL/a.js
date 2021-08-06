@@ -207,8 +207,9 @@ async function main() {
 
   void main () {
     vec3 normal = normalize(v_normal);
+    vec4 clampedUv = clamp(v_color, 0., 1.);
     float fakeLight = dot(u_lightDirection, normal) * .15 + .15;
-    vec4 diffuse = u_diffuse * v_color;
+    vec4 diffuse = u_diffuse * clampedUv;
     gl_FragColor = vec4(diffuse.rgb * fakeLight, diffuse.a);
   }
   `;
