@@ -204,11 +204,15 @@ async function main() {
 
   uniform vec4 u_diffuse;
   uniform vec3 u_lightDirection;
+  
+  uniform vec2 u_mouse;
+  uniform float u_height;
+  uniform float u_time;
 
   void main () {
     vec3 normal = normalize(v_normal);
     vec4 clampedUv = clamp(v_color, 0., 1.);
-    float fakeLight = dot(u_lightDirection, normal) * .15 + .15;
+    float fakeLight = dot(u_lightDirection, normal) * 0.30;
     vec4 diffuse = u_diffuse * clampedUv;
     gl_FragColor = vec4(diffuse.rgb * fakeLight, diffuse.a);
   }
@@ -299,6 +303,7 @@ async function main() {
   // for the size of this object.
   const zNear = radius / 100;
   const zFar = radius * 3;
+  let mouse = new Float32Array(2);
 
   function degToRad(deg) {
     return deg * Math.PI / 180;
@@ -311,6 +316,30 @@ async function main() {
       document.documentElement.clientHeight,
       document.documentElement.scrollHeight,
       document.documentElement.offsetHeight) - window.innerHeight;
+
+    (function () {
+      document.onmousemove = handleMouseMove;
+      function handleMouseMove(event) {
+        var eventDoc, doc, body;
+        event = event || window.event; // IE-ism
+        // If pageX/Y aren't available and clientX/Y are,
+        // calculate pageX/Y - logic taken from jQuery.
+        // (This is to support old IE)
+        if (event.pageX == null && event.clientX != null) {
+          eventDoc = (event.target && event.target.ownerDocument) || document;
+          doc = eventDoc.documentElement;
+          body = eventDoc.body;
+          event.pageX = event.clientX +
+            (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+            (doc && doc.clientLeft || body && body.clientLeft || 0);
+          event.pageY = event.clientY +
+            (doc && doc.scrollTop || body && body.scrollTop || 0) -
+            (doc && doc.clientTop || body && body.clientTop || 0);
+        }
+        mouse[0] = event.pageX * 0.001
+        mouse[1] = event.pageY * 0.001
+      }
+    })();
     const cameraPosition = m4.addVectors(cameraTarget, [
       0,
       0,
@@ -335,20 +364,23 @@ async function main() {
     const view = m4.inverse(camera);
 
     const sharedUniforms = {
-      u_lightDirection: m4.normalize([-1, 3, 5]),
+      u_lightDirection: m4.normalize([-1, 2, 5]),
       u_view: view,
       u_projection: projection,
+      u_time: time,
+      u_height: (window.scrollY).map(0, height, 0., 1.0),
+      u_mouse: mouse
     };
 
     gl.useProgram(meshProgramInfo.program);
-
+    // console.log(mouse)
     // calls gl.uniform
     webglUtils.setUniforms(meshProgramInfo, sharedUniforms);
 
     // compute the world matrix once since all parts
     // are at the same space.
-    console.log((window.scrollY).map(0, height, 0, 8))
-    let u_world = m4.yRotation((window.scrollY).map(0, height, 0, 6.5));
+    // console.log(mousePos)
+    let u_world = m4.multiply(m4.yRotation((window.scrollY).map(0, height, 0, 6.5) + mouse[0] * 0.2), m4.xRotation(mouse[1] * 0.1));
     u_world = m4.translate(u_world, ...objOffset);
 
     for (const { bufferInfo, material } of parts) {
