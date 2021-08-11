@@ -167,12 +167,21 @@ function parseOBJ(text) {
     materialLibs,
   };
 }
+function easeInSine(x) {
+  return 1 - cos((x * PI) / 2);
 
+}
 async function main() {
   // Get A WebGL context
   /** @type {HTMLCanvasElement} */
   const canvas = document.querySelector("#canvas");
   const gl = canvas.getContext("webgl");
+  const {
+    width,
+    height
+  } = canvas.getBoundingClientRect()
+  console.log(`[Canvas internal rendering] W: ${gl.drawingBufferWidth} | H: ${gl.drawingBufferHeight}`);
+  console.log(`[Actual canvas size] W: ${width} | H: ${height}`);
   if (!gl) {
     return;
   }
@@ -247,7 +256,7 @@ async function main() {
   // compiles and links the shaders, looks up attribute and uniform locations
   const meshProgramInfo = webglUtils.createProgramInfo(gl, [vs, fs]);
 
-  const response = await fetch('./GL/iphone11FINALTEST.obj')
+  const response = await fetch('./GL/iphone11CLOSEDLOOP.obj')
   const text = await response.text();
   const obj = parseOBJ(text);
 
@@ -371,9 +380,13 @@ async function main() {
       0,
       radius - (window.scrollY).map(0, height, 0, 1.89),
     ]);
+    setInterval(function () {
+      gl.canvas.width = 0 + (window.scrollY).map(0, height, 1440, 720)
+      gl.canvas.height = 0 + (window.scrollY).map(0, height, 692, 346)
+    }, 2000)
 
-    webglUtils.resizeCanvasToDisplaySize(gl.canvas);
-    gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+    // webglUtils.resizeCanvasToDisplaySize(gl.canvas);
+    gl.viewport(0.0, 0.0, gl.drawingBufferWidth, gl.drawingBufferHeight);
     gl.enable(gl.DEPTH_TEST);
     gl.clearColor(0.067, 0.075, 0.11, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
@@ -381,6 +394,7 @@ async function main() {
     const fieldOfViewRadians = degToRad(60);
     const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
     const projection = m4.perspective(fieldOfViewRadians, aspect, zNear, zFar);
+
 
     const up = [0, 1, 0];
     // Compute the camera's matrix using look at.
