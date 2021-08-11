@@ -181,6 +181,9 @@ async function main() {
   attribute vec4 a_position;
   attribute vec3 a_normal;
   attribute vec4 a_color;
+  attribute vec2 texCoord;
+ 
+  varying vec2 texCoordV;
 
   uniform mat4 u_projection;
   uniform mat4 u_view;
@@ -191,16 +194,18 @@ async function main() {
 
   void main() {
     gl_Position = u_projection * u_view * u_world * a_position;
+    texCoordV = texCoord;
     v_normal = mat3(u_world) * a_normal;
     v_color = a_color;
   }
   `;
 
   const fs = `
-  precision mediump float;
+  precision highp float;
 
   varying vec3 v_normal;
   varying vec4 v_color;
+  varying vec2 texCoordV;
 
   uniform vec4 u_diffuse;
   uniform vec3 u_lightDirection;
@@ -208,21 +213,41 @@ async function main() {
   uniform vec2 u_mouse;
   uniform float u_height;
   uniform float u_time;
+  uniform vec2 u_resolution;
+  mat3 yuv2rgb = mat3(0.7, 0.0, 1.13983,
+    1.0, -0.39465, -0.58060,
+    1.0, 2.03211, 0.0);
 
-  void main () {
+  // RGB to YUV matrix
+  mat3 rgb2yuv = mat3(0.2126, 0.7152, 0.0722,
+      -0.09991, -0.33609, 0.43600,
+      0.615, -0.5586, -0.05639);
+
+  void main(){
     vec3 normal = normalize(v_normal);
-    vec4 clampedUv = clamp(v_color, 0., 1.);
-    float fakeLight = dot(u_lightDirection, normal) * 0.30;
-    vec4 diffuse = u_diffuse * clampedUv;
-    gl_FragColor = vec4(diffuse.rgb * fakeLight, diffuse.a);
+    vec2 st = gl_FragCoord.xy/u_resolution * normal.z;
+    vec3 color = vec3(0.0);
+
+    // UV values goes from -1 to 1
+    // So we need to remap st (0.0 to 1.0)
+    st -= 0.5;  // becomes -0.5 to 0.5
+    st *= 2.0;  // becomes -1.0 to 1.0
+
+    // we pass st as the y & z values of
+    // a three dimensional vector to be
+    // properly multiply by a 3x3 matrix
+    color = yuv2rgb * vec3(abs(sin(u_time * 0.5)), st.x * (u_height + 1.0), st.y);
+
+    gl_FragColor = vec4(color,1.0);
   }
+    
   `;
 
 
   // compiles and links the shaders, looks up attribute and uniform locations
   const meshProgramInfo = webglUtils.createProgramInfo(gl, [vs, fs]);
 
-  const response = await fetch('./GL/iphone11opt5.obj')
+  const response = await fetch('./GL/iphone11FINALTEST.obj')
   const text = await response.text();
   const obj = parseOBJ(text);
 
@@ -304,6 +329,7 @@ async function main() {
   const zNear = radius / 100;
   const zFar = radius * 3;
   let mouse = new Float32Array(2);
+  const resolutionLocation = gl.getUniformLocation(meshProgramInfo.program, "u_resolution");
 
   function degToRad(deg) {
     return deg * Math.PI / 180;
@@ -373,6 +399,7 @@ async function main() {
     };
 
     gl.useProgram(meshProgramInfo.program);
+    gl.uniform2f(resolutionLocation, gl.canvas.width, gl.canvas.height);
     // console.log(mouse)
     // calls gl.uniform
     webglUtils.setUniforms(meshProgramInfo, sharedUniforms);
@@ -380,7 +407,7 @@ async function main() {
     // compute the world matrix once since all parts
     // are at the same space.
     // console.log(mousePos)
-    let u_world = m4.multiply(m4.yRotation((window.scrollY).map(0, height, 0, 6.5) + mouse[0] * 0.2), m4.xRotation(mouse[1] * 0.1));
+    let u_world = m4.multiply(m4.yRotation((window.scrollY).map(0, height, 0, 6.5) + mouse[0] * 0.15), m4.xRotation(mouse[1] * 0.1));
     u_world = m4.translate(u_world, ...objOffset);
 
     for (const { bufferInfo, material } of parts) {
