@@ -1,35 +1,39 @@
 @import "variables";
 .stats {
     align-self: center;
+    #b {
+        margin: 0px 60px 0px 60px;
+    }
     .point {
         background-color: $textColor;
         color: $bg;
         // width: 420px;
         // max-width: 500px;
-        min-width: 310px;
-        min-height: 60px;
+        max-width: 270px;
+        max-height: 390px;
+        min-height: 390px;
         border-radius: 20px;
         display: grid;
         grid-template-areas:
-            "a b"
-            "a b"
-            "a d"
-            "a d";
+            "a a"
+            "b b"
+            "c c"
+            "d d";
         align-items: start;
         #point_illus {
             grid-area: a;
-            align-self: center;
-            margin-left: 7px;
+            justify-self: center;
+            // margin-left: 7px;
         }
         #point_title {
             grid-area: b;
             font-weight: bold;
-            font-size: $fontMini;
+            font-size: $statTitle;
             margin-top: 5px;
             margin-left: 15px;
         }
         #point_description {
-            grid-area: d;
+            grid-area: c;
             font-size: $fontMini;
             color: $bg;
             margin-bottom: 5px;
@@ -38,20 +42,13 @@
         }
         @media only screen and (max-width: 660px) {
             // max-width: 100%;
-            width: 100px;
+            // width: 100px;
             height: 90px;
         }
     }
-    .point.red {
+    .point.purple {
         grid-area: a;
         justify-self: start;
-        #point_title {
-            color: $featherColorPink;
-        }
-    }
-    .point.purple {
-        grid-area: d;
-        justify-self: end;
         #point_title {
             color: #694370;
         }
@@ -61,10 +58,17 @@
         }
     }
     .point.green {
+        grid-area: d;
+        justify-self: end;
+        #point_title {
+            color: #43704d;
+        }
+    }
+    .point.red {
         grid-area: e;
         justify-self: start;
         #point_title {
-            color: #43704d;
+            color: $featherColorPink;
         }
     }
 }

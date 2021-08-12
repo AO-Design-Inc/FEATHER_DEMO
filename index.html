@@ -39,8 +39,6 @@
     <meta name="theme-color" content="#ffffff">
     <title>Feather | Demo</title>
 </head>
-<!-- <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script> -->
-<script src="https://webgl2fundamentals.org/webgl/resources/twgl-full.min.js"></script>
 <script src="https://webgl2fundamentals.org/webgl/resources/m4.js"></script>
 <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
 
@@ -88,41 +86,152 @@
                 </div>
             </div>
         </div>
-        <div class="screenCell stats">
-            <div class="point red">
-                <div id="point_illus">
-                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="45" height="45" rx="15" fill="#FFCACA" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M35 13.6563L35 36L12.6563 36L12.6563 33.8968L31.4097 33.8968L8 10.4872L9.48717 9L32.8968 32.4097L32.8968 13.6563L35 13.6563Z"
-                            fill="#FF5C5C" />
-                    </svg>
+        <div id="b">
+            <div class="screenCell stats">
+                <div class="point purple">
+                    <div id="point_illus">
+                        <svg width="214" height="190" viewBox="0 0 214 190" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_dd)">
+                                <path
+                                    d="M44.1571 110.669H30C18.9543 110.669 10 119.624 10 130.669V155.057C10 166.102 18.9543 175.057 30 175.057H44.1571C55.2028 175.057 64.1571 166.102 64.1571 155.057V130.669C64.1571 119.624 55.2028 110.669 44.1571 110.669Z"
+                                    fill="url(#paint0_linear)" />
+                                <path
+                                    d="M114.138 61.9625H99.9805C88.9348 61.9625 79.9805 70.9168 79.9805 81.9625V155.057C79.9805 166.102 88.9348 175.057 99.9805 175.057H114.138C125.183 175.057 134.138 166.102 134.138 155.057V81.9625C134.138 70.9168 125.183 61.9625 114.138 61.9625Z"
+                                    fill="url(#paint1_linear)" />
+                                <path
+                                    d="M183.852 6H169.695C158.65 6 149.695 14.9543 149.695 26V155.112C149.695 166.158 158.65 175.112 169.695 175.112H183.852C194.898 175.112 203.852 166.158 203.852 155.112V26C203.852 14.9543 194.898 6 183.852 6Z"
+                                    fill="url(#paint2_linear)" />
+                            </g>
+                            <defs>
+                                <filter id="filter0_dd" x="0" y="0" width="213.852" height="189.112"
+                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                    <feOffset dy="4" />
+                                    <feGaussianBlur stdDeviation="2" />
+                                    <feComposite in2="hardAlpha" operator="out" />
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                    <feOffset dy="4" />
+                                    <feGaussianBlur stdDeviation="5" />
+                                    <feComposite in2="hardAlpha" operator="out" />
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+                                    <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow" />
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape" />
+                                </filter>
+                                <linearGradient id="paint0_linear" x1="37.0786" y1="110.669" x2="37.0786" y2="175.057"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#DFBFE0" />
+                                    <stop offset="1" stop-color="#D1A5DA" />
+                                </linearGradient>
+                                <linearGradient id="paint1_linear" x1="107.059" y1="61.9625" x2="107.059" y2="175.057"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#DFBFE0" />
+                                    <stop offset="1" stop-color="#D1A5DA" />
+                                </linearGradient>
+                                <linearGradient id="paint2_linear" x1="176.774" y1="6" x2="176.774" y2="175.112"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#DFBFE0" />
+                                    <stop offset="1" stop-color="#D1A5DA" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div id="point_title" class="green">52% growth</div>
+                    <div id="point_description">
+                        To the effectiveness of your sales funnel due to interactive graphics increasing customer
+                        retention.
+                    </div>
+
                 </div>
-                <div id="point_title" class="red">30% reduction</div>
-                <div id="point_description">Optimizing WebGL improves load times</div>
-            </div>
-            <div class="point purple">
-                <div id="point_illus" class="purple">
-                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="45" height="45" rx="15" fill="#E0BFE0" />
-                        <rect x="9" y="17" width="27" height="2" fill="#694370" />
-                        <rect x="9" y="26" width="27" height="2" fill="#694370" />
-                    </svg>
+                <div class="point green">
+                    <div id="point_illus" class="purple">
+                        <svg width="80" height="153" viewBox="0 0 80 153" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_dd)">
+                                <path
+                                    d="M10.574 79.9304L54.9251 6.43113L45.5169 62.5501L68.8907 62.5501L15.2574 138.187L32.8754 80.2218L10.574 79.9304Z"
+                                    fill="url(#paint0_linear)" />
+                            </g>
+                            <defs>
+                                <filter id="filter0_dd" x="0" y="0" width="79.4452" height="152.709"
+                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                    <feOffset dy="4" />
+                                    <feGaussianBlur stdDeviation="2" />
+                                    <feComposite in2="hardAlpha" operator="out" />
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                    <feOffset dy="4" />
+                                    <feGaussianBlur stdDeviation="5" />
+                                    <feComposite in2="hardAlpha" operator="out" />
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+                                    <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow" />
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape" />
+                                </filter>
+                                <linearGradient id="paint0_linear" x1="39.1862" y1="6.27585" x2="37.8802" y2="138.41"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#60AE71" />
+                                    <stop offset="1" stop-color="#7BBA89" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div id="point_title" class="purple">Maintain balance</div>
+                    <div id="point_description">Between fast loading and beautiful visuals</div>
                 </div>
-                <div id="point_title" class="purple">Maintain balance</div>
-                <div id="point_description">Between fast loading and beautiful visuals</div>
-            </div>
-            <div class="point green">
-                <div id="point_illus">
-                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="45" height="45" rx="15" fill="#BFE0C6" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M12.6563 9L35 9V31.3437H32.8968V12.5903L9.48717 36L8 34.5128L31.4097 11.1032L12.6563 11.1032V9Z"
-                            fill="#43704D" />
-                    </svg>
+                <div class="point red">
+                    <div id="point_illus">
+                        <svg width="190" height="190" viewBox="0 0 190 190" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_dd)">
+                                <path
+                                    d="M95.0586 175.37C141.727 175.37 179.559 137.538 179.559 90.8699C179.559 44.2018 141.727 6.36987 95.0586 6.36987C48.3905 6.36987 10.5586 44.2018 10.5586 90.8699C10.5586 137.538 48.3905 175.37 95.0586 175.37Z"
+                                    fill="url(#paint0_linear)" />
+                            </g>
+                            <path d="M94.5586 91.3699V30.3699" stroke="#FF5C5C" stroke-width="10" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M94.5586 91.3699L121.559 119.37" stroke="#FF5C5C" stroke-width="10"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <defs>
+                                <filter id="filter0_dd" x="0.558594" y="0.369873" width="189" height="189"
+                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                    <feOffset dy="4" />
+                                    <feGaussianBlur stdDeviation="2" />
+                                    <feComposite in2="hardAlpha" operator="out" />
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                    <feOffset dy="4" />
+                                    <feGaussianBlur stdDeviation="5" />
+                                    <feComposite in2="hardAlpha" operator="out" />
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+                                    <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow" />
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape" />
+                                </filter>
+                                <linearGradient id="paint0_linear" x1="136.059" y1="19.3699" x2="58.0586" y2="164.37"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#FFCACA" />
+                                    <stop offset="1" stop-color="#FFB0B0" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div id="point_title" class="red">50% growth</div>
+                    <div id="point_description">Optimizing WebGL improves load times</div>
                 </div>
-                <div id="point_title" class="green">52% growth</div>
-                <div id="point_description">Interactive graphics result in customer retention</div>
             </div>
         </div>
         <div class="screenCell cta" style="margin-bottom: 0px;">

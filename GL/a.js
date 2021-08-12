@@ -253,8 +253,8 @@ async function main() {
   `;
 
   let resize = function () {
-    gl.canvas.width = 0 + (window.scrollY).map(0, height, 1440, 1000)
-    gl.canvas.height = 0 + (window.scrollY).map(0, height, 692, 480.89)
+    gl.canvas.width = 0 + (window.scrollY).map(0, height, 2079, 1200)
+    gl.canvas.height = 0 + (window.scrollY).map(0, height, 999.77, 577.07)
     console.log('hapend')
   }
 
