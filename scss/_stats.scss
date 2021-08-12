@@ -1,6 +1,6 @@
 @import "variables";
 .screenCell.stats {
-  height: 160vh;
+  height: 180vh;
   @media only screen and (max-width: 900px) {
     height: 200vh
   }
@@ -8,9 +8,10 @@
 .stats {
   align-self: center;
   grid-gap: 60px;
+  padding: 0px 6vw;
   @media only screen and (max-width: 900px) {
       .point{
-          margin-bottom: 90px;
+          margin-bottom: 60px;
       }
   }
   .point > div {
@@ -19,8 +20,8 @@
   .point {
     background-color: $textColor;
     color: $bg;
-    max-width: 310px;
-    min-width: 310px;
+    max-width: 303px;
+    min-width: 303px;
     min-height: 340px;
     // height: 340px;
     border-radius: 20px;
@@ -34,12 +35,13 @@
     align-items: start;
     #point_illus {
       grid-area: n_a;
-      justify-self: center;
+      margin: 0px 0px 10px 0px;
+      // justify-self: center;
     }
     #point_title {
       grid-area: n_b;
       font-weight: bold;
-      font-size: 2.563em;
+      font-size: 2.3em;
       margin-top: 5px;
     }
     #point_description {
@@ -59,11 +61,12 @@
   .point.purple {
     grid-area: a;
     justify-self: start;
+    border-bottom-right-radius: 0px;
     #point_title {
       color: #b05bb2;
     }
     #var {
-      #number {
+      #number_purple {
         color: #b05bb2;
       }
     }
@@ -71,6 +74,7 @@
   .point.green {
     grid-area: d;
     justify-self: end;
+    border-bottom-left-radius: 0px;
     #point_title {
       color: #529661;
     }
@@ -87,11 +91,12 @@
   .point.red {
     grid-area: e;
     justify-self: start;
+    border-bottom-right-radius: 0px;
     #point_title {
       color: #ff5c5c;
     }
     #var {
-      #number {
+      #number_red {
         color: #ff5c5c;
       }
     }

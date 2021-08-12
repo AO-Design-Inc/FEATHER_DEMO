@@ -1,14 +1,19 @@
-<svg width="189" height="189" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g filter="url(#Group_39__filter0_dd)">
-    <path d="M94.5 175c46.668 0 84.5-37.832 84.5-84.5S141.168 6 94.5 6 10 43.832 10 90.5 47.832 175 94.5 175z" fill="url(#Group_39__paint0_linear)"/>
+<svg width="303" height="218" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 20C0 8.954 8.954 0 20 0h263c11.046 0 20 8.954 20 20v198H20c-11.046 0-20-8.954-20-20V20z" fill="url(#Group_44__paint0_linear)"/>
+  <g filter="url(#Group_44__filter0_dd)">
+    <path d="M151.5 193c46.668 0 84.5-37.832 84.5-84.5S198.168 24 151.5 24 67 61.832 67 108.5s37.832 84.5 84.5 84.5z" fill="url(#Group_44__paint1_linear)"/>
   </g>
-  <path d="M94 91V30m0 61l27 28" stroke="#FF5C5C" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M151 109V48m0 61l27 28" stroke="#FF5C5C" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
   <defs>
-    <linearGradient id="Group_39__paint0_linear" x1="135.5" y1="19" x2="57.5" y2="164" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFD3CA"/>
-      <stop offset="1" stop-color="#FFB0B0"/>
+    <linearGradient id="Group_44__paint0_linear" x1="151.5" y1="0" x2="151.5" y2="218" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFC8C6"/>
+      <stop offset="1" stop-color="#FFAEAE"/>
     </linearGradient>
-    <filter id="Group_39__filter0_dd" x="0" y="0" width="189" height="189" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <linearGradient id="Group_44__paint1_linear" x1="192.5" y1="37" x2="114.5" y2="182" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF8F7"/>
+      <stop offset="1" stop-color="#FFDFDF"/>
+    </linearGradient>
+    <filter id="Group_44__filter0_dd" x="57" y="18" width="189" height="189" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-opacity="0" result="BackgroundImageFix"/>
       <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
       <feOffset dy="4"/>

@@ -1,23 +1,28 @@
-<svg width="214" height="190" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g filter="url(#Group_29__filter0_dd)">
-    <path d="M44.157 110.669H30c-11.046 0-20 8.955-20 20v24.388c0 11.045 8.954 20 20 20h14.157c11.046 0 20-8.955 20-20v-24.388c0-11.045-8.954-20-20-20z" fill="url(#Group_29__paint0_linear)"/>
-    <path d="M114.138 61.962H99.981c-11.046 0-20 8.955-20 20v73.095c0 11.045 8.954 20 20 20h14.157c11.045 0 20-8.955 20-20V81.963c0-11.046-8.955-20-20-20z" fill="url(#Group_29__paint1_linear)"/>
-    <path d="M183.852 6h-14.157c-11.045 0-20 8.954-20 20v129.112c0 11.046 8.955 20 20 20h14.157c11.046 0 20-8.954 20-20V26c0-11.046-8.954-20-20-20z" fill="url(#Group_29__paint2_linear)"/>
+<svg width="303" height="218" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 20C0 8.954 8.954 0 20 0h263c11.046 0 20 8.954 20 20v198H20c-11.046 0-20-8.954-20-20V20z" fill="url(#Group_42__paint0_linear)"/>
+  <g filter="url(#Group_42__filter0_dd)">
+    <path d="M89.157 127.669H75c-11.046 0-20 8.955-20 20v24.388c0 11.045 8.954 20 20 20h14.157c11.046 0 20-8.955 20-20v-24.388c0-11.045-8.954-20-20-20z" fill="url(#Group_42__paint1_linear)"/>
+    <path d="M159.138 78.963H144.98c-11.045 0-20 8.954-20 20v73.094c0 11.045 8.955 20 20 20h14.158c11.045 0 20-8.955 20-20V98.963c0-11.046-8.955-20-20-20z" fill="url(#Group_42__paint2_linear)"/>
+    <path d="M228.852 23h-14.157c-11.045 0-20 8.954-20 20v129.112c0 11.046 8.955 20 20 20h14.157c11.046 0 20-8.954 20-20V43c0-11.046-8.954-20-20-20z" fill="url(#Group_42__paint3_linear)"/>
   </g>
   <defs>
-    <linearGradient id="Group_29__paint0_linear" x1="37.079" y1="110.669" x2="37.079" y2="175.057" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Group_42__paint0_linear" x1="151.5" y1="0" x2="151.5" y2="218" gradientUnits="userSpaceOnUse">
       <stop stop-color="#DFBFE0"/>
-      <stop offset="1" stop-color="#D1A5DA"/>
+      <stop offset="1" stop-color="#D2A7DB"/>
     </linearGradient>
-    <linearGradient id="Group_29__paint1_linear" x1="107.059" y1="61.962" x2="107.059" y2="175.057" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#DFBFE0"/>
-      <stop offset="1" stop-color="#D1A5DA"/>
+    <linearGradient id="Group_42__paint1_linear" x1="82.079" y1="127.669" x2="82.079" y2="192.057" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCF2FC"/>
+      <stop offset="1" stop-color="#F7E6FB"/>
     </linearGradient>
-    <linearGradient id="Group_29__paint2_linear" x1="176.774" y1="6" x2="176.774" y2="175.112" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#DFBFE0"/>
-      <stop offset="1" stop-color="#D1A5DA"/>
+    <linearGradient id="Group_42__paint2_linear" x1="152.059" y1="78.963" x2="152.059" y2="192.057" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCF2FC"/>
+      <stop offset="1" stop-color="#F7E6FB"/>
     </linearGradient>
-    <filter id="Group_29__filter0_dd" x="0" y="0" width="213.852" height="189.112" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <linearGradient id="Group_42__paint3_linear" x1="221.774" y1="23" x2="221.774" y2="192.112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCF2FC"/>
+      <stop offset="1" stop-color="#F7E6FB"/>
+    </linearGradient>
+    <filter id="Group_42__filter0_dd" x="45" y="17" width="213.852" height="189.112" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-opacity="0" result="BackgroundImageFix"/>
       <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
       <feOffset dy="4"/>

@@ -3,8 +3,8 @@
 // This is not a full .obj parser.
 // see http://paulbourke.net/dataformats/obj/
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
-  return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
+  return ((this - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+};
 function parseOBJ(text) {
   // because indices are base 1 let's just fill in the 0th data
   const objPositions = [[0, 0, 0]];
@@ -13,29 +13,24 @@ function parseOBJ(text) {
   const objColors = [[0, 0, 0]];
 
   // same order as `f` indices
-  const objVertexData = [
-    objPositions,
-    objTexcoords,
-    objNormals,
-    objColors,
-  ];
+  const objVertexData = [objPositions, objTexcoords, objNormals, objColors];
 
   // same order as `f` indices
   let webglVertexData = [
-    [],   // positions
-    [],   // texcoords
-    [],   // normals
-    [],   // colors
+    [], // positions
+    [], // texcoords
+    [], // normals
+    [], // colors
   ];
 
   const materialLibs = [];
   const geometries = [];
   let geometry;
-  let groups = ['default'];
-  let material = 'default';
-  let object = 'default';
+  let groups = ["default"];
+  let material = "default";
+  let object = "default";
 
-  const noop = () => { };
+  const noop = () => {};
 
   function newGeometry() {
     // If there is an existing geometry and it's
@@ -51,12 +46,7 @@ function parseOBJ(text) {
       const texcoord = [];
       const normal = [];
       const color = [];
-      webglVertexData = [
-        position,
-        texcoord,
-        normal,
-        color,
-      ];
+      webglVertexData = [position, texcoord, normal, color];
       geometry = {
         object,
         groups,
@@ -73,7 +63,7 @@ function parseOBJ(text) {
   }
 
   function addVertex(vert) {
-    const ptn = vert.split('/');
+    const ptn = vert.split("/");
     ptn.forEach((objIndexStr, i) => {
       if (!objIndexStr) {
         return;
@@ -115,7 +105,7 @@ function parseOBJ(text) {
         addVertex(parts[tri + 2]);
       }
     },
-    s: noop,    // smoothing group
+    s: noop, // smoothing group
     mtllib(parts, unparsedArgs) {
       // the spec says there can be multiple filenames here
       // but many exist with spaces in a single filename
@@ -136,10 +126,10 @@ function parseOBJ(text) {
   };
 
   const keywordRE = /(\w*)(?: )*(.*)/;
-  const lines = text.split('\n');
+  const lines = text.split("\n");
   for (let lineNo = 0; lineNo < lines.length; ++lineNo) {
     const line = lines[lineNo].trim();
-    if (line === '' || line.startsWith('#')) {
+    if (line === "" || line.startsWith("#")) {
       continue;
     }
     const m = keywordRE.exec(line);
@@ -150,7 +140,7 @@ function parseOBJ(text) {
     const parts = line.split(/\s+/).slice(1);
     const handler = keywords[keyword];
     if (!handler) {
-      console.warn('unhandled keyword:', keyword);  // eslint-disable-line no-console
+      console.warn("unhandled keyword:", keyword); // eslint-disable-line no-console
       continue;
     }
     handler(parts, unparsedArgs);
@@ -159,7 +149,8 @@ function parseOBJ(text) {
   // remove any arrays that have no entries.
   for (const geometry of geometries) {
     geometry.data = Object.fromEntries(
-      Object.entries(geometry.data).filter(([, array]) => array.length > 0));
+      Object.entries(geometry.data).filter(([, array]) => array.length > 0)
+    );
   }
 
   return {
@@ -169,18 +160,16 @@ function parseOBJ(text) {
 }
 function easeInSine(x) {
   return 1 - cos((x * PI) / 2);
-
 }
 async function main() {
   // Get A WebGL context
   /** @type {HTMLCanvasElement} */
   const canvas = document.querySelector("#canvas");
   const gl = canvas.getContext("webgl");
-  const {
-    width,
-    height
-  } = canvas.getBoundingClientRect()
-  console.log(`[Canvas internal rendering] W: ${gl.drawingBufferWidth} | H: ${gl.drawingBufferHeight}`);
+  const { width, height } = canvas.getBoundingClientRect();
+  console.log(
+    `[Canvas internal rendering] W: ${gl.drawingBufferWidth} | H: ${gl.drawingBufferHeight}`
+  );
   console.log(`[Actual canvas size] W: ${width} | H: ${height}`);
   if (!gl) {
     return;
@@ -245,22 +234,26 @@ async function main() {
     // we pass st as the y & z values of
     // a three dimensional vector to be
     // properly multiply by a 3x3 matrix
-    color = yuv2rgb * vec3(abs(sin(u_time * 0.5)), st.x * (u_height + 1.0), st.y);
+    color = yuv2rgb * vec3(abs(sin(u_time * 0.5)), st.x * (u_height + 1.0), 0.1);
 
     gl_FragColor = vec4(color,1.0);
   }
     
   `;
 
-  let resize = function () {
-    gl.canvas.width = 0 + (window.scrollY).map(0, height, 1440, 1200)
-    gl.canvas.height = 0 + (window.scrollY).map(0, height, 692, 577.07)
-  }
-
+  let resize = function (t) {
+    gl.canvas.width = 0 + window.scrollY.map(0, height, 1440, 1200);
+    gl.canvas.height = 0 + window.scrollY.map(0, height, 692, 577.07);
+    document.getElementById("number_purple").innerHTML =
+      t >= 15 ? `${t}s or ${t - 15}s longer than average` : `${t}s`;
+    console.log(t);
+  };
+  document.getElementById("number_red").innerHTML = `${(window.performance.timing.domContentLoadedEventEnd -
+    window.performance.timing.navigationStart)/1000}s`
   // compiles and links the shaders, looks up attribute and uniform locations
   const meshProgramInfo = webglUtils.createProgramInfo(gl, [vs, fs]);
 
-  const response = await fetch('./GL/iphone11CLOSEDLOOP.obj')
+  const response = await fetch("./GL/iphone11FINALFINALFINAL.obj");
   const text = await response.text();
   const obj = parseOBJ(text);
 
@@ -313,26 +306,28 @@ async function main() {
   }
 
   function getGeometriesExtents(geometries) {
-    return geometries.reduce(({ min, max }, { data }) => {
-      const minMax = getExtents(data.position);
-      return {
-        min: min.map((min, ndx) => Math.min(minMax.min[ndx], min)),
-        max: max.map((max, ndx) => Math.max(minMax.max[ndx], max)),
-      };
-    }, {
-      min: Array(3).fill(Number.POSITIVE_INFINITY),
-      max: Array(3).fill(Number.NEGATIVE_INFINITY),
-    });
+    return geometries.reduce(
+      ({ min, max }, { data }) => {
+        const minMax = getExtents(data.position);
+        return {
+          min: min.map((min, ndx) => Math.min(minMax.min[ndx], min)),
+          max: max.map((max, ndx) => Math.max(minMax.max[ndx], max)),
+        };
+      },
+      {
+        min: Array(3).fill(Number.POSITIVE_INFINITY),
+        max: Array(3).fill(Number.NEGATIVE_INFINITY),
+      }
+    );
   }
 
   const extents = getGeometriesExtents(obj.geometries);
   const range = m4.subtractVectors(extents.max, extents.min);
   // amount to move the object so its center is at the origin
   const objOffset = m4.scaleVector(
-    m4.addVectors(
-      extents.min,
-      m4.scaleVector(range, 0.5)),
-    -1);
+    m4.addVectors(extents.min, m4.scaleVector(range, 0.5)),
+    -1
+  );
   let cameraTarget = [-0.1, 0.05, 0];
   // figure out how far away to move the camera so we can likely
   // see the object.
@@ -342,19 +337,24 @@ async function main() {
   const zNear = radius / 100;
   const zFar = radius * 3;
   let mouse = new Float32Array(2);
-  const resolutionLocation = gl.getUniformLocation(meshProgramInfo.program, "u_resolution");
+  const resolutionLocation = gl.getUniformLocation(
+    meshProgramInfo.program,
+    "u_resolution"
+  );
 
   function degToRad(deg) {
-    return deg * Math.PI / 180;
+    return (deg * Math.PI) / 180;
   }
   function render(time) {
-    time *= 0.001;  // convert to seconds
-    let height = Math.max(
-      document.body.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.clientHeight,
-      document.documentElement.scrollHeight,
-      document.documentElement.offsetHeight) - window.innerHeight;
+    time *= 0.001; // convert to seconds
+    let height =
+      Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      ) - window.innerHeight;
 
     (function () {
       document.onmousemove = handleMouseMove;
@@ -368,35 +368,36 @@ async function main() {
           eventDoc = (event.target && event.target.ownerDocument) || document;
           doc = eventDoc.documentElement;
           body = eventDoc.body;
-          event.pageX = event.clientX +
-            (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-            (doc && doc.clientLeft || body && body.clientLeft || 0);
-          event.pageY = event.clientY +
-            (doc && doc.scrollTop || body && body.scrollTop || 0) -
-            (doc && doc.clientTop || body && body.clientTop || 0);
+          event.pageX =
+            event.clientX +
+            ((doc && doc.scrollLeft) || (body && body.scrollLeft) || 0) -
+            ((doc && doc.clientLeft) || (body && body.clientLeft) || 0);
+          event.pageY =
+            event.clientY +
+            ((doc && doc.scrollTop) || (body && body.scrollTop) || 0) -
+            ((doc && doc.clientTop) || (body && body.clientTop) || 0);
         }
-        mouse[0] = event.pageX * 0.001
-        mouse[1] = event.pageY * 0.001
+        mouse[0] = event.pageX * 0.001;
+        mouse[1] = event.pageY * 0.001;
       }
     })();
     const cameraPosition = m4.addVectors(cameraTarget, [
       0,
       0,
-      radius - (window.scrollY).map(0, height, 0, 1.89),
+      radius - window.scrollY.map(0, height, 0, 1.89),
     ]);
-    (Math.floor(time * 2) % 2 === 0) ? resize() : false
+    Math.floor(time * 2) % 2 === 0 ? resize(Math.floor(time)) : false;
     // setInterval(function () { resize() }, 2000)
 
     // webglUtils.resizeCanvasToDisplaySize(gl.canvas);
     gl.viewport(0.0, 0.0, gl.drawingBufferWidth, gl.drawingBufferHeight);
     gl.enable(gl.DEPTH_TEST);
     gl.clearColor(0.067, 0.075, 0.11, 1.0);
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     const fieldOfViewRadians = degToRad(60);
     const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
     const projection = m4.perspective(fieldOfViewRadians, aspect, zNear, zFar);
-
 
     const up = [0, 1, 0];
     // Compute the camera's matrix using look at.
@@ -410,8 +411,8 @@ async function main() {
       u_view: view,
       u_projection: projection,
       u_time: time,
-      u_height: (window.scrollY).map(0, height, 0., 1.0),
-      u_mouse: mouse
+      u_height: window.scrollY.map(0, height, 0, 1.0),
+      u_mouse: mouse,
     };
 
     gl.useProgram(meshProgramInfo.program);
@@ -423,7 +424,10 @@ async function main() {
     // compute the world matrix once since all parts
     // are at the same space.
     // console.log(mousePos)
-    let u_world = m4.multiply(m4.yRotation((window.scrollY).map(0, height, 0, 6.5) + mouse[0] * 0.15), m4.xRotation(mouse[1] * 0.1));
+    let u_world = m4.multiply(
+      m4.yRotation(window.scrollY.map(0, height, 0, 6.5) + mouse[0] * 0.15),
+      m4.xRotation(mouse[1] * 0.1)
+    );
     u_world = m4.translate(u_world, ...objOffset);
 
     for (const { bufferInfo, material } of parts) {
