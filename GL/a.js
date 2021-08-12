@@ -167,10 +167,6 @@ async function main() {
   const canvas = document.querySelector("#canvas");
   const gl = canvas.getContext("webgl");
   const { width, height } = canvas.getBoundingClientRect();
-  console.log(
-    `[Canvas internal rendering] W: ${gl.drawingBufferWidth} | H: ${gl.drawingBufferHeight}`
-  );
-  console.log(`[Actual canvas size] W: ${width} | H: ${height}`);
   if (!gl) {
     return;
   }
@@ -246,7 +242,6 @@ async function main() {
     gl.canvas.height = 0 + window.scrollY.map(0, height, 692, 577.07);
     document.getElementById("number_purple").innerHTML =
       t >= 15 ? `${t}s or ${t - 15}s longer than average` : `${t}s`;
-    console.log(t);
   };
   document.getElementById("number_red").innerHTML = `${(window.performance.timing.domContentLoadedEventEnd -
     window.performance.timing.navigationStart)/1000}s`
