@@ -1,0 +1,50 @@
+<svg width="189" height="189" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#Group_37__filter0_dd)">
+    <path d="M94.5 175c46.668 0 84.5-37.832 84.5-84.5S141.168 6 94.5 6 10 43.832 10 90.5 47.832 175 94.5 175z" fill="url(#Group_37__paint0_linear)"/>
+  </g>
+  <g filter="url(#Group_37__filter1_dd)">
+    <path d="M65.574 98.93l44.351-73.499-9.408 56.12h23.374l-53.634 75.636 17.618-57.965-22.301-.292z" fill="url(#Group_37__paint1_linear)"/>
+  </g>
+  <defs>
+    <linearGradient id="Group_37__paint0_linear" x1="135.5" y1="19" x2="57.5" y2="164" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#93D3A0"/>
+      <stop offset="1" stop-color="#B6DEBF"/>
+    </linearGradient>
+    <linearGradient id="Group_37__paint1_linear" x1="94.186" y1="25.276" x2="92.88" y2="157.41" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60AE71"/>
+      <stop offset="1" stop-color="#7BBA89"/>
+    </linearGradient>
+    <filter id="Group_37__filter0_dd" x="0" y="0" width="189" height="189" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="4"/>
+      <feGaussianBlur stdDeviation="2"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="4"/>
+      <feGaussianBlur stdDeviation="5"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+      <feBlend in2="effect1_dropShadow" result="effect2_dropShadow"/>
+      <feBlend in="SourceGraphic" in2="effect2_dropShadow" result="shape"/>
+    </filter>
+    <filter id="Group_37__filter1_dd" x="55" y="19" width="79.445" height="152.709" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="4"/>
+      <feGaussianBlur stdDeviation="2"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="4"/>
+      <feGaussianBlur stdDeviation="5"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+      <feBlend in2="effect1_dropShadow" result="effect2_dropShadow"/>
+      <feBlend in="SourceGraphic" in2="effect2_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+</svg>

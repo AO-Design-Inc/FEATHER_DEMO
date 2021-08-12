@@ -253,9 +253,8 @@ async function main() {
   `;
 
   let resize = function () {
-    gl.canvas.width = 0 + (window.scrollY).map(0, height, 1440, 1000)
-    gl.canvas.height = 0 + (window.scrollY).map(0, height, 692, 480.89)
-    console.log('hapend')
+    gl.canvas.width = 0 + (window.scrollY).map(0, height, 1440, 1200)
+    gl.canvas.height = 0 + (window.scrollY).map(0, height, 692, 577.07)
   }
 
   // compiles and links the shaders, looks up attribute and uniform locations
@@ -385,7 +384,7 @@ async function main() {
       0,
       radius - (window.scrollY).map(0, height, 0, 1.89),
     ]);
-    (Math.floor(time * 2) % 2 === 0) ? resize() : console.log('Nope')
+    (Math.floor(time * 2) % 2 === 0) ? resize() : false
     // setInterval(function () { resize() }, 2000)
 
     // webglUtils.resizeCanvasToDisplaySize(gl.canvas);

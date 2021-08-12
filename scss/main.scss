@@ -59,7 +59,7 @@ body {
         margin: 0px $margins 240px $margins;
         height: 100vh;
         min-height: 700px;
-        max-height: 730px;
+        max-height: 1400px;
         scroll-behavior: smooth;
         text-rendering: optimizeSpeed;
 
@@ -72,6 +72,7 @@ body {
             "e e e e f f f f"
             "e e e e f f f f";
         align-items: start;
+        // grid-gap: 60px;
         @media only screen and (min-width: 1450px) {
             margin: 0px 60px 240px 60px
         }

@@ -1,164 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
-    <meta name="description" content="Bring your vision to life">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,viewport-fit=cover"
+    />
+    <meta name="description" content="Bring your vision to life" />
     <!-- edit -->
     <!-- normal -->
-    <meta name="description" content="Bring your vision to life">
-    <meta name="keywords" content="feather systems webgl wasm">
-    <meta name="author" content="Feather Labs">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="Bring your vision to life" />
+    <meta name="keywords" content="feather systems webgl wasm" />
+    <meta name="author" content="Feather Labs" />
+    <meta name="robots" content="index, follow" />
     <!-- og -->
-    <meta property="og:description" content="Bring your vision to life">
-    <meta property="og:site_name" content="Feather Labs">
-    <meta property="og:title" content="Feather Labs">
-    <meta property="og:image" content="./assets/Site-Display.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://feather.systems/labs">
+    <meta property="og:description" content="Bring your vision to life" />
+    <meta property="og:site_name" content="Feather Labs" />
+    <meta property="og:title" content="Feather Labs" />
+    <meta property="og:image" content="./assets/Site-Display.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://feather.systems/labs" />
     <!-- twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://feather.systems/labs">
-    <meta name="twitter:creator" content="Feather Labs">
-    <meta name="twitter:title" content="Feather Labs">
-    <meta name="twitter:description" content="Bring your vision to life">
-    <meta name="twitter:image:src" content="./assets/Site-Display.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://feather.systems/labs" />
+    <meta name="twitter:creator" content="Feather Labs" />
+    <meta name="twitter:title" content="Feather Labs" />
+    <meta name="twitter:description" content="Bring your vision to life" />
+    <meta name="twitter:image:src" content="./assets/Site-Display.png" />
     <!-- edit end -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-    <link rel="manifest" href="/icons/site.webmanifest">
-    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#d5615b">
-    <link rel="shortcut icon" href="/icons/favicon.ico">
-    <link rel="stylesheet" href="style.css">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="/icons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/icons/site.webmanifest" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#d5615b" />
+    <link rel="shortcut icon" href="/icons/favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/icons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
     <title>Feather | Demo</title>
-</head>
-<!-- <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script> -->
-<script src="https://webgl2fundamentals.org/webgl/resources/twgl-full.min.js"></script>
-<script src="https://webgl2fundamentals.org/webgl/resources/m4.js"></script>
-<script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
+  </head>
+  <!-- <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script> -->
+  <script src="https://webgl2fundamentals.org/webgl/resources/twgl-full.min.js"></script>
+  <script src="https://webgl2fundamentals.org/webgl/resources/m4.js"></script>
+  <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
 
-<body onload="main();">
-    <canvas width="1440" height="692" id="canvas" class="c">
-    </canvas>
+  <body onload="main();">
+    <canvas width="1440" height="692" id="canvas" class="c"> </canvas>
     <div id="page_wrapper">
-        <div class="dashboard">
-            <div id="logo">
-                <a href="./index.html">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M60 30C60 13.4315 46.5685 0 29.9999 0C13.4314 0 0 13.4315 0 30C0 46.5685 13.4314 60 29.9999 60C46.5685 60 60 46.5685 60 30Z"
-                            fill="#fb7680" />
-                        <path
-                            d="M22.8381 15.326C14.3984 15.326 14.4512 23.7128 14.4512 23.7128V28.5043C14.4512 28.5043 16.3726 23.7128 21.6927 23.7128H22.2091H39.6119C48.1889 23.7128 48.0003 15.4174 47.9984 15.3395H47.9779L47.9988 15.3264H43.5293H32.6812L22.8381 15.326ZM22.8381 25.81C14.3984 25.81 14.4512 34.1969 14.4512 34.1969V38.9883C14.4512 38.9883 16.3726 34.1969 21.6927 34.1969H22.2091H39.6119C48.1889 34.1969 48.0003 25.9015 47.9984 25.8235H47.9779L47.9988 25.8105H43.5293C43.5293 25.8105 36.1298 25.8106 32.6812 25.8105C29.2326 25.8104 22.8381 25.81 22.8381 25.81Z"
-                            fill="white" />
-                        <path
-                            d="M22.8381 36.2871C14.3985 36.2871 14.4512 44.674 14.4512 44.674H24.3058H24.5154C33.0926 44.674 32.9039 36.3786 32.902 36.3007H32.8814L32.9023 36.2875H28.4329H22.8266L22.8381 36.2871Z"
-                            fill="white" />
-                    </svg>
-                </a>
-            </div>
-            <div id="butt_container">
-                <button onclick="location.href='https://blog.feather.systems/';" id="butt_blog">Our Blog.</button>
-                <button aria-label="Email Us" id="butt_contact_form" onclick="location.href='./form.html';">
-                    <div>
-                        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0 2C0 0.89543 0.89543 0 2 0H18C19.1046 0 20 0.89543 20 2V14C20 15.1046 19.1046 16 18 16H2C0.89543 16 0 15.1046 0 14V2ZM3.51859 2L10 7.6712L16.4814 2H3.51859ZM18 3.32877L10.6585 9.7526C10.2815 10.0825 9.7185 10.0825 9.3415 9.7526L2 3.32877V14H18V3.32877Z" />
-                        </svg>
-                    </div>
-                </button>
-            </div>
+      <div class="dashboard">
+        <div id="logo">
+          <a href="./index.html">
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 60 60"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M60 30C60 13.4315 46.5685 0 29.9999 0C13.4314 0 0 13.4315 0 30C0 46.5685 13.4314 60 29.9999 60C46.5685 60 60 46.5685 60 30Z"
+                fill="#fb7680"
+              />
+              <path
+                d="M22.8381 15.326C14.3984 15.326 14.4512 23.7128 14.4512 23.7128V28.5043C14.4512 28.5043 16.3726 23.7128 21.6927 23.7128H22.2091H39.6119C48.1889 23.7128 48.0003 15.4174 47.9984 15.3395H47.9779L47.9988 15.3264H43.5293H32.6812L22.8381 15.326ZM22.8381 25.81C14.3984 25.81 14.4512 34.1969 14.4512 34.1969V38.9883C14.4512 38.9883 16.3726 34.1969 21.6927 34.1969H22.2091H39.6119C48.1889 34.1969 48.0003 25.9015 47.9984 25.8235H47.9779L47.9988 25.8105H43.5293C43.5293 25.8105 36.1298 25.8106 32.6812 25.8105C29.2326 25.8104 22.8381 25.81 22.8381 25.81Z"
+                fill="white"
+              />
+              <path
+                d="M22.8381 36.2871C14.3985 36.2871 14.4512 44.674 14.4512 44.674H24.3058H24.5154C33.0926 44.674 32.9039 36.3786 32.902 36.3007H32.8814L32.9023 36.2875H28.4329H22.8266L22.8381 36.2871Z"
+                fill="white"
+              />
+            </svg>
+          </a>
         </div>
-        <script src="./GL/worker.js"></script>
-        <script src="./GL/a.js"></script>
-        <div class="screenCell splash">
-            <div id="splash_text">
-                <div id="splash_text_small">
-                    Model render demo
-                </div>
-                <div id="splash_text_large">
-                    BRING YOUR VISION TO LIFE
-                </div>
+        <div id="butt_container">
+          <button
+            onclick="location.href='https://blog.feather.systems/';"
+            id="butt_blog"
+          >
+            Our Blog.
+          </button>
+          <button
+            aria-label="Email Us"
+            id="butt_contact_form"
+            onclick="location.href='./form.html';"
+          >
+            <div>
+              <svg
+                width="20"
+                height="16"
+                viewBox="0 0 20 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 2C0 0.89543 0.89543 0 2 0H18C19.1046 0 20 0.89543 20 2V14C20 15.1046 19.1046 16 18 16H2C0.89543 16 0 15.1046 0 14V2ZM3.51859 2L10 7.6712L16.4814 2H3.51859ZM18 3.32877L10.6585 9.7526C10.2815 10.0825 9.7185 10.0825 9.3415 9.7526L2 3.32877V14H18V3.32877Z"
+                />
+              </svg>
             </div>
+          </button>
         </div>
-        <div class="screenCell stats">
-            <div class="point red">
-                <div id="point_illus">
-                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="45" height="45" rx="15" fill="#FFCACA" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M35 13.6563L35 36L12.6563 36L12.6563 33.8968L31.4097 33.8968L8 10.4872L9.48717 9L32.8968 32.4097L32.8968 13.6563L35 13.6563Z"
-                            fill="#FF5C5C" />
-                    </svg>
-                </div>
-                <div id="point_title" class="red">30% reduction</div>
-                <div id="point_description">Optimizing WebGL improves load times</div>
-            </div>
-            <div class="point purple">
-                <div id="point_illus" class="purple">
-                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="45" height="45" rx="15" fill="#E0BFE0" />
-                        <rect x="9" y="17" width="27" height="2" fill="#694370" />
-                        <rect x="9" y="26" width="27" height="2" fill="#694370" />
-                    </svg>
-                </div>
-                <div id="point_title" class="purple">Maintain balance</div>
-                <div id="point_description">Between fast loading and beautiful visuals</div>
-            </div>
-            <div class="point green">
-                <div id="point_illus">
-                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="45" height="45" rx="15" fill="#BFE0C6" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M12.6563 9L35 9V31.3437H32.8968V12.5903L9.48717 36L8 34.5128L31.4097 11.1032L12.6563 11.1032V9Z"
-                            fill="#43704D" />
-                    </svg>
-                </div>
-                <div id="point_title" class="green">52% growth</div>
-                <div id="point_description">Interactive graphics result in customer retention</div>
-            </div>
+      </div>
+      <script src="./GL/worker.js"></script>
+      <script src="./GL/a.js"></script>
+      <div class="screenCell splash">
+        <div id="splash_text">
+          <div id="splash_text_small">Model render demo</div>
+          <div id="splash_text_large">BRING YOUR VISION TO LIFE</div>
         </div>
-        <div class="screenCell cta" style="margin-bottom: 0px;">
-            <div id="cta_container">
-                <div id="logo">
-                    <svg width="268" height="54" viewBox="0 0 268 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 53.2204H11.2198V31.2358H32.8044V21.9586H11.2198V9.27719H35.1365V0H0V53.2204Z"
-                            fill="#FFFAFB" />
-                        <path
-                            d="M57.6928 54C67.5393 54 74.1727 49.1925 75.7274 41.7863L65.5182 41.1107C64.404 44.1511 61.5537 45.7363 57.8742 45.7363C52.3549 45.7363 48.8568 42.0722 48.8568 36.1213V36.0953H75.9606V33.0549C75.9606 19.4899 67.7725 12.7854 57.2523 12.7854C45.5401 12.7854 37.9479 21.127 37.9479 33.4447C37.9479 46.1001 45.4365 54 57.6928 54ZM48.8568 29.2348C49.09 24.6872 52.5363 21.0491 57.4337 21.0491C62.2274 21.0491 65.5441 24.4793 65.57 29.2348H48.8568Z"
-                            fill="#FFFAFB" />
-                        <path
-                            d="M94.5135 53.974C100.396 53.974 104.205 51.4013 106.148 47.6853H106.459V53.2204H116.927V26.2984C116.927 16.7873 108.895 12.7854 100.033 12.7854C90.4972 12.7854 84.2265 17.359 82.6977 24.6352L92.907 25.4668C93.6585 22.8162 96.0164 20.8672 99.981 20.8672C103.738 20.8672 105.889 22.7642 105.889 26.0385V26.1944C105.889 28.7671 103.168 29.1049 96.2497 29.7806C88.3724 30.5082 81.2985 33.1588 81.2985 42.0722C81.2985 49.9721 86.9214 53.974 94.5135 53.974ZM97.6748 46.334C94.2803 46.334 91.8446 44.7488 91.8446 41.7084C91.8446 38.59 94.4099 37.0568 98.2967 36.5111C100.706 36.1732 104.645 35.6015 105.967 34.718V38.9538C105.967 43.1376 102.52 46.334 97.6748 46.334Z"
-                            fill="#FFFAFB" />
-                        <path
-                            d="M146.661 13.3051H139.173V3.74206H128.134V13.3051H122.693V21.6208H128.134V42.41C128.082 50.2319 133.394 54.1039 141.401 53.7661C144.251 53.6622 146.273 53.0905 147.387 52.7267L145.651 44.4889C145.106 44.5929 143.94 44.8527 142.904 44.8527C140.701 44.8527 139.173 44.0212 139.173 40.9548V21.6208H146.661V13.3051Z"
-                            fill="#FFFAFB" />
-                        <path
-                            d="M165.745 30.1444C165.771 24.999 168.907 21.9846 173.415 21.9846C177.898 21.9846 180.541 24.8691 180.515 29.7806V53.2204H191.554V27.8056C191.579 18.4504 186.086 12.7854 177.794 12.7854C171.757 12.7854 167.715 15.6439 165.901 20.3474H165.434V0H154.707V53.2204H165.745V30.1444Z"
-                            fill="#FFFAFB" />
-                        <path
-                            d="M218.379 54C228.225 54 234.859 49.1925 236.413 41.7863L226.204 41.1107C225.09 44.1511 222.24 45.7363 218.56 45.7363C213.041 45.7363 209.543 42.0722 209.543 36.1213V36.0953H236.647V33.0549C236.647 19.4899 228.458 12.7854 217.938 12.7854C206.226 12.7854 198.634 21.127 198.634 33.4447C198.634 46.1001 206.122 54 218.379 54ZM209.543 29.2348C209.776 24.6872 213.222 21.0491 218.12 21.0491C222.913 21.0491 226.23 24.4793 226.256 29.2348H209.543Z"
-                            fill="#FFFAFB" />
-                        <path
-                            d="M243.85 53.2204H254.889V30.6381C254.889 25.7267 258.464 22.3484 263.336 22.3484C264.865 22.3484 266.964 22.6083 268 22.9461V13.1232C267.015 12.8893 265.642 12.7334 264.528 12.7334C260.071 12.7334 256.417 15.332 254.966 20.2695H254.552V13.3051H243.85V53.2204Z"
-                            fill="#FFFAFB" />
-                    </svg>
-
-                </div>
-                <div id="cta_text">
-                    We build websites as light as a feather.
-                </div>
-                <button onclick="location.href='./form.html';">Learn More</button>
-            </div>
+      </div>
+      <div class="screenCell stats">
+        <div class="point purple">
+          <div id="point_illus" class="purple">
+            <svg
+              width="214"
+              height="190"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g filter="url(#Group_29__filter0_dd)">
+                <path
+                  d="M44.157 110.669H30c-11.046 0-20 8.955-20 20v24.388c0 11.045 8.954 20 20 20h14.157c11.046 0 20-8.955 20-20v-24.388c0-11.045-8.954-20-20-20z"
+                  fill="url(#Group_29__paint0_linear)"
+                />
+                <path
+                  d="M114.138 61.962H99.981c-11.046 0-20 8.955-20 20v73.095c0 11.045 8.954 20 20 20h14.157c11.045 0 20-8.955 20-20V81.963c0-11.046-8.955-20-20-20z"
+                  fill="url(#Group_29__paint1_linear)"
+                />
+                <path
+                  d="M183.852 6h-14.157c-11.045 0-20 8.954-20 20v129.112c0 11.046 8.955 20 20 20h14.157c11.046 0 20-8.954 20-20V26c0-11.046-8.954-20-20-20z"
+                  fill="url(#Group_29__paint2_linear)"
+                />
+              </g>
+              <defs>
+                <linearGradient
+                  id="Group_29__paint0_linear"
+                  x1="37.079"
+                  y1="110.669"
+                  x2="37.079"
+                  y2="175.057"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#DFBFE0" />
+                  <stop offset="1" stop-color="#D1A5DA" />
+                </linearGradient>
+                <linearGradient
+                  id="Group_29__paint1_linear"
+                  x1="107.059"
+                  y1="61.962"
+                  x2="107.059"
+                  y2="175.057"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#DFBFE0" />
+                  <stop offset="1" stop-color="#D1A5DA" />
+                </linearGradient>
+                <linearGradient
+                  id="Group_29__paint2_linear"
+                  x1="176.774"
+                  y1="6"
+                  x2="176.774"
+                  y2="175.112"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#DFBFE0" />
+                  <stop offset="1" stop-color="#D1A5DA" />
+                </linearGradient>
+                <filter
+                  id="Group_29__filter0_dd"
+                  x="0"
+                  y="0"
+                  width="213.852"
+                  height="189.112"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
+                  />
+                  <feBlend
+                    in2="BackgroundImageFix"
+                    result="effect1_dropShadow"
+                  />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="5" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
+                  />
+                  <feBlend
+                    in2="effect1_dropShadow"
+                    result="effect2_dropShadow"
+                  />
+                  <feBlend
+                    in="SourceGraphic"
+                    in2="effect2_dropShadow"
+                    result="shape"
+                  />
+                </filter>
+              </defs>
+            </svg>
+          </div>
+          <div id="point_title" class="purple">52% growth</div>
+          <div id="point_description">
+            To the effectiveness of your sales funnel due to interactive
+            graphics increasing customer retention.
+          </div>
+          <div id="var">
+            You’ve been here for: <span id="number">2y 142d 1h 3m 52s</span>
+          </div>
         </div>
+        <div class="point green">
+          <div id="point_illus">
+            <svg
+              width="189"
+              height="189"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g filter="url(#Group_37__filter0_dd)">
+                <path
+                  d="M94.5 175c46.668 0 84.5-37.832 84.5-84.5S141.168 6 94.5 6 10 43.832 10 90.5 47.832 175 94.5 175z"
+                  fill="url(#Group_37__paint0_linear)"
+                />
+              </g>
+              <g filter="url(#Group_37__filter1_dd)">
+                <path
+                  d="M65.574 98.93l44.351-73.499-9.408 56.12h23.374l-53.634 75.636 17.618-57.965-22.301-.292z"
+                  fill="url(#Group_37__paint1_linear)"
+                />
+              </g>
+              <defs>
+                <linearGradient
+                  id="Group_37__paint0_linear"
+                  x1="135.5"
+                  y1="19"
+                  x2="57.5"
+                  y2="164"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#93D3A0" />
+                  <stop offset="1" stop-color="#B6DEBF" />
+                </linearGradient>
+                <linearGradient
+                  id="Group_37__paint1_linear"
+                  x1="94.186"
+                  y1="25.276"
+                  x2="92.88"
+                  y2="157.41"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#60AE71" />
+                  <stop offset="1" stop-color="#7BBA89" />
+                </linearGradient>
+                <filter
+                  id="Group_37__filter0_dd"
+                  x="0"
+                  y="0"
+                  width="189"
+                  height="189"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
+                  />
+                  <feBlend
+                    in2="BackgroundImageFix"
+                    result="effect1_dropShadow"
+                  />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="5" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
+                  />
+                  <feBlend
+                    in2="effect1_dropShadow"
+                    result="effect2_dropShadow"
+                  />
+                  <feBlend
+                    in="SourceGraphic"
+                    in2="effect2_dropShadow"
+                    result="shape"
+                  />
+                </filter>
+                <filter
+                  id="Group_37__filter1_dd"
+                  x="55"
+                  y="19"
+                  width="79.445"
+                  height="152.709"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
+                  />
+                  <feBlend
+                    in2="BackgroundImageFix"
+                    result="effect1_dropShadow"
+                  />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="5" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
+                  />
+                  <feBlend
+                    in2="effect1_dropShadow"
+                    result="effect2_dropShadow"
+                  />
+                  <feBlend
+                    in="SourceGraphic"
+                    in2="effect2_dropShadow"
+                    result="shape"
+                  />
+                </filter>
+              </defs>
+            </svg>
+          </div>
+          <div id="point_title" class="green">50% reduction</div>
+          <div id="point_description">
+            In energy use due to reduced datacenter power usage
+          </div>
+          <div id="var">
+            Loading this site saved <span id="number">51g</span> of Co2
+          </div>
+        </div>
+        <div class="point red">
+          <div id="point_illus">
+            <svg
+              width="189"
+              height="189"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g filter="url(#Group_39__filter0_dd)">
+                <path
+                  d="M94.5 175c46.668 0 84.5-37.832 84.5-84.5S141.168 6 94.5 6 10 43.832 10 90.5 47.832 175 94.5 175z"
+                  fill="url(#Group_39__paint0_linear)"
+                />
+              </g>
+              <path
+                d="M94 91V30m0 61l27 28"
+                stroke="#FF5C5C"
+                stroke-width="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <defs>
+                <linearGradient
+                  id="Group_39__paint0_linear"
+                  x1="135.5"
+                  y1="19"
+                  x2="57.5"
+                  y2="164"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#FFD3CA" />
+                  <stop offset="1" stop-color="#FFB0B0" />
+                </linearGradient>
+                <filter
+                  id="Group_39__filter0_dd"
+                  x="0"
+                  y="0"
+                  width="189"
+                  height="189"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
+                  />
+                  <feBlend
+                    in2="BackgroundImageFix"
+                    result="effect1_dropShadow"
+                  />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="5" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
+                  />
+                  <feBlend
+                    in2="effect1_dropShadow"
+                    result="effect2_dropShadow"
+                  />
+                  <feBlend
+                    in="SourceGraphic"
+                    in2="effect2_dropShadow"
+                    result="shape"
+                  />
+                </filter>
+              </defs>
+            </svg>
+          </div>
+          <div id="point_title" class="red">90% reduction</div>
+          <div id="point_description">
+            To load times as a result of webGL optimizations that prevents those
+            valuable customers from clicking away.
+          </div>
+          <div id="var">This site loaded in <span id="number">0.21s</span></div>
+        </div>
+      </div>
+      <div class="screenCell cta" style="margin-bottom: 0px">
+        <div id="cta_container">
+          <div id="logo">
+            <svg
+              width="268"
+              height="54"
+              viewBox="0 0 268 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 53.2204H11.2198V31.2358H32.8044V21.9586H11.2198V9.27719H35.1365V0H0V53.2204Z"
+                fill="#FFFAFB"
+              />
+              <path
+                d="M57.6928 54C67.5393 54 74.1727 49.1925 75.7274 41.7863L65.5182 41.1107C64.404 44.1511 61.5537 45.7363 57.8742 45.7363C52.3549 45.7363 48.8568 42.0722 48.8568 36.1213V36.0953H75.9606V33.0549C75.9606 19.4899 67.7725 12.7854 57.2523 12.7854C45.5401 12.7854 37.9479 21.127 37.9479 33.4447C37.9479 46.1001 45.4365 54 57.6928 54ZM48.8568 29.2348C49.09 24.6872 52.5363 21.0491 57.4337 21.0491C62.2274 21.0491 65.5441 24.4793 65.57 29.2348H48.8568Z"
+                fill="#FFFAFB"
+              />
+              <path
+                d="M94.5135 53.974C100.396 53.974 104.205 51.4013 106.148 47.6853H106.459V53.2204H116.927V26.2984C116.927 16.7873 108.895 12.7854 100.033 12.7854C90.4972 12.7854 84.2265 17.359 82.6977 24.6352L92.907 25.4668C93.6585 22.8162 96.0164 20.8672 99.981 20.8672C103.738 20.8672 105.889 22.7642 105.889 26.0385V26.1944C105.889 28.7671 103.168 29.1049 96.2497 29.7806C88.3724 30.5082 81.2985 33.1588 81.2985 42.0722C81.2985 49.9721 86.9214 53.974 94.5135 53.974ZM97.6748 46.334C94.2803 46.334 91.8446 44.7488 91.8446 41.7084C91.8446 38.59 94.4099 37.0568 98.2967 36.5111C100.706 36.1732 104.645 35.6015 105.967 34.718V38.9538C105.967 43.1376 102.52 46.334 97.6748 46.334Z"
+                fill="#FFFAFB"
+              />
+              <path
+                d="M146.661 13.3051H139.173V3.74206H128.134V13.3051H122.693V21.6208H128.134V42.41C128.082 50.2319 133.394 54.1039 141.401 53.7661C144.251 53.6622 146.273 53.0905 147.387 52.7267L145.651 44.4889C145.106 44.5929 143.94 44.8527 142.904 44.8527C140.701 44.8527 139.173 44.0212 139.173 40.9548V21.6208H146.661V13.3051Z"
+                fill="#FFFAFB"
+              />
+              <path
+                d="M165.745 30.1444C165.771 24.999 168.907 21.9846 173.415 21.9846C177.898 21.9846 180.541 24.8691 180.515 29.7806V53.2204H191.554V27.8056C191.579 18.4504 186.086 12.7854 177.794 12.7854C171.757 12.7854 167.715 15.6439 165.901 20.3474H165.434V0H154.707V53.2204H165.745V30.1444Z"
+                fill="#FFFAFB"
+              />
+              <path
+                d="M218.379 54C228.225 54 234.859 49.1925 236.413 41.7863L226.204 41.1107C225.09 44.1511 222.24 45.7363 218.56 45.7363C213.041 45.7363 209.543 42.0722 209.543 36.1213V36.0953H236.647V33.0549C236.647 19.4899 228.458 12.7854 217.938 12.7854C206.226 12.7854 198.634 21.127 198.634 33.4447C198.634 46.1001 206.122 54 218.379 54ZM209.543 29.2348C209.776 24.6872 213.222 21.0491 218.12 21.0491C222.913 21.0491 226.23 24.4793 226.256 29.2348H209.543Z"
+                fill="#FFFAFB"
+              />
+              <path
+                d="M243.85 53.2204H254.889V30.6381C254.889 25.7267 258.464 22.3484 263.336 22.3484C264.865 22.3484 266.964 22.6083 268 22.9461V13.1232C267.015 12.8893 265.642 12.7334 264.528 12.7334C260.071 12.7334 256.417 15.332 254.966 20.2695H254.552V13.3051H243.85V53.2204Z"
+                fill="#FFFAFB"
+              />
+            </svg>
+          </div>
+          <div id="cta_text">We build websites as light as a feather.</div>
+          <button onclick="location.href='./form.html';">Learn More</button>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
