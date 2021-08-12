@@ -238,8 +238,8 @@ async function main() {
   `;
 
   let resize = function (t) {
-    gl.canvas.width = 0 + window.scrollY.map(0, height, 1440, 1200);
-    gl.canvas.height = 0 + window.scrollY.map(0, height, 692, 577.07);
+    gl.canvas.width = 0 + window.scrollY.map(0, height, 1440, 1075);
+    gl.canvas.height = 0 + window.scrollY.map(0, height, 692, 516.96);
     document.getElementById("number_purple").innerHTML =
       t >= 15 ? `${t}s or ${t - 15}s longer than average` : `${t}s`;
   };
