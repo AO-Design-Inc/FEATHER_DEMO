@@ -248,7 +248,7 @@ async function main() {
   // compiles and links the shaders, looks up attribute and uniform locations
   const meshProgramInfo = webglUtils.createProgramInfo(gl, [vs, fs]);
 
-  const response = await fetch("./GL/iphone11FINALFINALFINAL.obj");
+  const response = await fetch("./GL/iphone11.txt");
   const text = await response.text();
   const obj = parseOBJ(text);
 
