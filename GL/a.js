@@ -166,7 +166,6 @@ async function main() {
   /** @type {HTMLCanvasElement} */
   const canvas = document.querySelector("#canvas");
   const gl = canvas.getContext("webgl");
-  const { width, height } = canvas.getBoundingClientRect();
   if (!gl) {
     return;
   }
@@ -237,9 +236,9 @@ async function main() {
     
   `;
 
-  let resize = function (t) {
-    gl.canvas.width = 0 + window.scrollY.map(0, height, 1440, 1075);
-    gl.canvas.height = 0 + window.scrollY.map(0, height, 692, 516.96);
+  let resize = function (t, h) {
+    gl.canvas.width = 0 + window.scrollY.map(0, h, 1440, 1075);
+    gl.canvas.height = 0 + window.scrollY.map(0, h, 692, 516.96);
     document.getElementById("number_purple").innerHTML =
       t >= 15 ? `${t}s or ${t - 15}s longer than average` : `${t}s`;
   };
@@ -381,7 +380,7 @@ async function main() {
       0,
       radius - window.scrollY.map(0, height, 0, 1.89),
     ]);
-    Math.floor(time * 2) % 2 === 0 ? resize(Math.floor(time)) : false;
+    Math.floor(time * 2) % 2 === 0 ? resize(Math.floor(time), height) : false;
     // setInterval(function () { resize() }, 2000)
 
     // webglUtils.resizeCanvasToDisplaySize(gl.canvas);
