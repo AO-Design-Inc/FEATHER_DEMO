@@ -37,6 +37,7 @@ form {
     input[type="url"],
     input[type="email"],
     textarea {
+        overflow: hidden;
         transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
         background: transparent;
         font-family: inherit;
@@ -69,6 +70,12 @@ form {
         ~ label {
             font-size: 27px;
             top: -50px;
+        }
+        &::-webkit-scrollbar{
+            display: none;
+        }
+        &::-moz-scrollbar {
+            display: none;
         }
     }
     #form_submit {
