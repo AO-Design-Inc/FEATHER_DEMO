@@ -1,7 +1,6 @@
 "use strict";
 import { webglUtils } from "../webgl-utils.js";
 import { m4 } from "../m4.js";
-console.log(m4);
 // This is not a full .obj parser.
 // see http://paulbourke.net/dataformats/obj/
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
@@ -246,7 +245,6 @@ async function main() {
     document.getElementById("number_purple").innerHTML =
       t >= 15 ? `${t}s or ${t - 15}s longer than average` : `${t}s`;
   };
-  console.log(window.performance.getEntriesByType("navigation")[0]);
   // compiles and links the shaders, looks up attribute and uniform locations
   const meshProgramInfo = webglUtils.createProgramInfo(gl, [vs, fs]);
 

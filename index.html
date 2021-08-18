@@ -593,7 +593,6 @@
   <script src="./out.js"></script>
   <script>
     document.addEventListener("readystatechange", (event) => {
-      console.log(document.readyState);
       if (document.readyState === "complete") {
         let str = (window.performance.getEntriesByType("navigation")[0].domComplete / 1000).toString()
         document.getElementById("number_red").innerHTML = `${str.substr(0,4)}s`;
