@@ -1,7 +1,7 @@
 "use strict";
 import { webglUtils } from "../webgl-utils.js";
-import {m4} from "../m4.js";
-console.log(m4)
+import { m4 } from "../m4.js";
+console.log(m4);
 // This is not a full .obj parser.
 // see http://paulbourke.net/dataformats/obj/
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
@@ -238,13 +238,15 @@ async function main() {
     
   `;
 
-  let resize = function (t, h) {
+  let resize = function (h) {
     gl.canvas.width = 0 + window.scrollY.map(0, h, 1440, 1075);
     gl.canvas.height = 0 + window.scrollY.map(0, h, 692, 516.96);
+  };
+  let clockTime = function (t) {
     document.getElementById("number_purple").innerHTML =
       t >= 15 ? `${t}s or ${t - 15}s longer than average` : `${t}s`;
   };
-  console.log(window.performance.getEntriesByType("navigation")[0])
+  console.log(window.performance.getEntriesByType("navigation")[0]);
   // compiles and links the shaders, looks up attribute and uniform locations
   const meshProgramInfo = webglUtils.createProgramInfo(gl, [vs, fs]);
 
@@ -336,12 +338,14 @@ async function main() {
     meshProgramInfo.program,
     "u_resolution"
   );
+  let frameCounter = 0;
 
   function degToRad(deg) {
     return (deg * Math.PI) / 180;
   }
   function render(time) {
     time *= 0.001; // convert to seconds
+    frameCounter++;
     let height =
       Math.max(
         document.body.scrollHeight,
@@ -381,7 +385,8 @@ async function main() {
       0,
       radius - window.scrollY.map(0, height, 0, 1.89),
     ]);
-    Math.floor(time * 2) % 2 === 0 ? resize(Math.floor(time), height) : false;
+    if (frameCounter % 120 == 0) {resize(height); frameCounter = 0};
+    if (frameCounter % 60 == 0) clockTime(Math.floor(time));
     // setInterval(function () { resize() }, 2000)
 
     // webglUtils.resizeCanvasToDisplaySize(gl.canvas);
