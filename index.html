@@ -7,7 +7,11 @@
     <link rel="prefetch" href="fonts/inter-v3-latin-900.subset.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="prefetch" href="fonts/inter-v3-latin-regular.subset.woff2" as="font" type="font/woff2" crossorigin> -->
 
-    <script defer data-domain="lab.feather.systems" src="https://plausible.io/js/plausible.js"></script>
+    <script
+      defer
+      data-domain="lab.feather.systems"
+      src="https://plausible.io/js/plausible.js"
+    ></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
@@ -64,7 +68,7 @@
   </head>
 
   <body>
-    <div style="display: none;">1234567890</div>
+    <div style="display: none">1234567890</div>
     <div id="page_wrapper">
       <canvas width="1440" height="692" id="canvas" class="c"> </canvas>
       <div class="dashboard">
@@ -578,5 +582,17 @@
         </div>
       </div>
     </div>
-  </body><script src="./out.js"></script>
+  </body>
+  <script src="./out.js"></script>
+  <script>
+    window.addEventListener("readystatechange", (event) => {
+      if (document.readyState === "complete") {
+        document.getElementById("number_red").innerHTML = `${
+          window.performance.getEntriesByType("navigation")[0]
+            .domComplete
+        }s`;
+      }
+      console.log("this happened");
+    });
+  </script>
 </html>

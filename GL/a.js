@@ -244,11 +244,7 @@ async function main() {
     document.getElementById("number_purple").innerHTML =
       t >= 15 ? `${t}s or ${t - 15}s longer than average` : `${t}s`;
   };
-  document.getElementById("number_red").innerHTML = `${
-    (window.performance.timing.domContentLoadedEventEnd -
-      window.performance.timing.navigationStart) /
-    1000
-  }s`;
+  console.log(window.performance.getEntriesByType("navigation")[0])
   // compiles and links the shaders, looks up attribute and uniform locations
   const meshProgramInfo = webglUtils.createProgramInfo(gl, [vs, fs]);
 
