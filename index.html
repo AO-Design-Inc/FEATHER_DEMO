@@ -425,8 +425,15 @@
             In energy use due to reduced datacenter power usage
           </div>
           <div id="var">
-            Loading this site saved <span id="number">1.67g</span> of Co2 That's
-            <span id="number">16.7kg per 10,000</span>
+            Loading this site saved
+            <a
+              href="https://www.websitecarbon.com/website/lab-feather-systems/"
+              style="text-decoration: none; color: black"
+              target="_blank"
+            >
+              <span id="number">1.67g</span> of Co2 That's
+              <span id="number">16.7kg per 10,000</span>
+            </a>
             visits
           </div>
         </div>
@@ -585,14 +592,14 @@
   </body>
   <script src="./out.js"></script>
   <script>
-    window.addEventListener("readystatechange", (event) => {
+    document.addEventListener("readystatechange", (event) => {
+      console.log(document.readyState);
       if (document.readyState === "complete") {
         document.getElementById("number_red").innerHTML = `${
-          window.performance.getEntriesByType("navigation")[0]
-            .domComplete
+          window.performance.getEntriesByType("navigation")[0].domComplete /
+          1000
         }s`;
       }
-      console.log("this happened");
     });
   </script>
 </html>
