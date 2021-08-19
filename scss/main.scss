@@ -73,6 +73,10 @@ body {
     min-height: 700px;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
+    margin-bottom: 120px;
+    @media only screen and (max-width: 900px) {
+      margin-bottom: 60px;
+    }
 
     display: grid;
     grid-template-areas:
