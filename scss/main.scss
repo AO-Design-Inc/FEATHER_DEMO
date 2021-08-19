@@ -4,53 +4,60 @@
 @import "splash";
 @import "stats";
 @import "cta";
-@import "form";
+// @import "form";
 @import "canva";
 /* inter-300 - latin */
 @font-face {
   font-family: "Inter";
   font-weight: 300;
   src: url(./fonts/inter-v3-latin-300.subset.woff2);
-  unicode-range: U+20, U+25, U+27-29, U+2c-3a, U+41-5b, U+5d, U+61-7a, U+2019;
+  unicode-range: U+20-21, U+25, U+27-29, U+2c-3a, U+3f, U+41-5b, U+5d, U+61-7a,
+    U+2019;
 }
 /* inter-200 - latin */
 @font-face {
   font-family: "Inter";
   src: url(./fonts/inter-v3-latin-200.subset.woff2);
   font-weight: 200;
-  unicode-range: U+20, U+25, U+27-29, U+2c-3a, U+41-5b, U+5d, U+61-7a, U+2019;
+  unicode-range: U+20-21, U+25, U+27-29, U+2c-3a, U+3f, U+41-5b, U+5d, U+61-7a,
+    U+2019;
 }
 /* inter-regular - latin */
 @font-face {
   font-family: "Inter";
   font-weight: 400;
   src: url(./fonts/inter-v3-latin-regular.subset.woff2);
-  unicode-range: U+20, U+25, U+27-29, U+2c-3a, U+41-5b, U+5d, U+61-7a, U+2019;
+  unicode-range: U+20-21, U+25, U+27-29, U+2c-3a, U+3f, U+41-5b, U+5d, U+61-7a,
+    U+2019;
 }
 /* inter-700 - latin */
 @font-face {
   font-family: "Inter";
   font-weight: 700;
   src: url(./fonts/inter-v3-latin-700.subset.woff2);
-  unicode-range: U+20, U+25, U+27-29, U+2c-3a, U+41-5b, U+5d, U+61-7a, U+2019;
+  unicode-range: U+20-21, U+25, U+27-29, U+2c-3a, U+3f, U+41-5b, U+5d, U+61-7a,
+    U+2019;
 }
 /* inter-900 - latin */
 @font-face {
   font-family: "Inter";
   font-weight: 900;
   src: url(./fonts/inter-v3-latin-900.subset.woff2);
-  unicode-range: U+20, U+25, U+27-29, U+2c-3a, U+41-5b, U+5d, U+61-7a, U+2019;
+  unicode-range: U+20-21, U+25, U+27-29, U+2c-3a, U+3f, U+41-5b, U+5d, U+61-7a,
+    U+2019;
 }
 @font-face {
   font-family: "Inter";
   font-weight: 600;
   src: url(fonts/inter-v3-latin-600.subset.woff2);
-  unicode-range: U+20, U+25, U+27-29, U+2c-3a, U+41-5b, U+5d, U+61-7a, U+2019;
+  unicode-range: U+20-21, U+25, U+27-29, U+2c-3a, U+3f, U+41-5b, U+5d, U+61-7a,
+    U+2019;
 }
 html,
 body {
   max-width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 body {
   color: $textColor;
@@ -61,7 +68,7 @@ body {
   // max-width: 1440px / 2;
   .screenCell {
     width: 100vw - ($margins * 2);
-    max-width: 1440px;
+    max-width: 1800px;
     margin: 0px $margins 240px $margins;
     height: 100vh;
     min-height: 700px;
