@@ -1,6 +1,5 @@
 @import "variables";
 .screenCell.cta {
-  max-width: 3000px;
   @media only screen and (max-width: 900px) {
     height: 175vh;
   }
@@ -19,11 +18,11 @@
       grid-area: e;
       border-radius: 20px
     }
-    max-width: 540px;
-    width: 37.5vw;
+    // max-width: 540px;
+    width: 126.5%;
     min-width: 303px;
     height: 580px;
-    background: linear-gradient(208.28deg, #fff8f7 14%, #ffdfdf 85.94%);
+    background: linear-gradient(208.28deg, #fff8f7 14%, #ffecec 85.94%);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05),
       0px 4px 4px rgba(0, 0, 0, 0.05);
     border-radius: 20px 20px 0px 20px;
