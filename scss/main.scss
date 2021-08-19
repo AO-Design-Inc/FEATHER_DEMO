@@ -68,11 +68,9 @@ body {
   // max-width: 1440px / 2;
   .screenCell {
     width: 100vw - ($margins * 2);
-    max-width: 1200px;
-    margin: 0px $margins 240px $margins;
+    max-width: 1400px;
     height: 100vh;
     min-height: 700px;
-    max-height: 1400px;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
 
@@ -86,17 +84,16 @@ body {
       "e e e e f f f f";
     align-items: start;
     // grid-gap: 60px;
-    @media only screen and (min-width: 1450px) {
-      margin: 0px 60px 240px 60px;
-    }
   }
   #page_wrapper {
-    margin: 0;
+    // margin: 0;
+    // margin: 0px $margins;
+    margin: 0 auto;
+    width: 100vw - ($margins * 2);
     // max-width: 1440px;
-    width: 100%;
-    grid-template-columns: 100%;
-    @media only screen and (min-width: 1440px) {
-      margin: 0 auto 0 auto;
+    // width: 100vw;
+    @media only screen and (min-width: 1500px) {
+      // margin: 0 auto 0 auto;
       max-width: 1440px;
     }
   }

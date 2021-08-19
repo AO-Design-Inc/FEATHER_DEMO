@@ -1,23 +1,37 @@
 @import "variables";
 .screenCell.stats {
-  height: 180vh;
-  @media only screen and (max-width: 900px) {
-    height: 240vh
-  }
+  display: flex;
+  height: 400vh;
+  flex-direction: column;
+  height: auto;
+  min-height: auto;
 }
 .stats {
   align-self: center;
-  grid-gap: 60px;
   padding: 0px 6vw;
+  @media only screen and (min-width: 1200px) {
+    padding: 0px;
+  }
   @media only screen and (max-width: 900px) {
     padding: 0px;
-      .point{
-          margin-bottom: 120px;
-      }
+    .point {
+      margin-bottom: 120px;
+    }
   }
   .point > div {
     margin: 10px 15px 10px 15px;
   }
+  .cont {
+    width: 100%;
+    display: flex;
+    &.green {
+      justify-content: flex-end;
+      @media only screen and (max-width: 900px) {
+        justify-content: left;
+      }
+    }
+  }
+
   .point {
     background-color: $textColor;
     color: $bg;
@@ -61,8 +75,6 @@
     }
   }
   .point.purple {
-    grid-area: a;
-    justify-self: start;
     border-bottom-right-radius: 0px;
     #point_title {
       color: #b05bb2;
@@ -74,8 +86,6 @@
     }
   }
   .point.green {
-    grid-area: d;
-    justify-self: end;
     border-bottom-left-radius: 0px;
     #point_title {
       color: #529661;
@@ -86,13 +96,10 @@
       }
     }
     @media only screen and (max-width: 900px) {
-      justify-self: start;
       grid-area: c;
     }
   }
   .point.red {
-    grid-area: e;
-    justify-self: start;
     border-bottom-right-radius: 0px;
     #point_title {
       color: #ff5c5c;

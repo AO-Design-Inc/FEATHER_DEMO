@@ -1,26 +1,27 @@
 .splash {
-    #splash_text{
-        grid-area: c;
-        align-self: center;
-        text-align: right;
-        width: 50%;
-        margin-top: 2.5rem;
-        @media only screen and (max-width: 1200px) {
-            margin-top: 8rem;
-            text-align: left;
-        }
-        #splash_text_small {
-            font-weight: 300;
-            font-size: $fontMini;
-        }
-        #splash_text_large {
-            font-weight: 900;
-            font-size: $fontBig * 1.4;
-            line-height: 100%;
-            max-width: 650px;
-            @media only screen and (max-width: 900px) {
-                font-size: 5.18rem * 1.1;
-            }
-        }
+  max-height: 1400px;
+  #splash_text {
+    grid-area: c;
+    align-self: center;
+    text-align: right;
+    width: 50%;
+    margin-top: 2.5rem;
+    @media only screen and (max-width: 1200px) {
+      margin-top: 8rem;
+      text-align: left;
     }
+    #splash_text_small {
+      font-weight: 300;
+      font-size: $fontMini;
+    }
+    #splash_text_large {
+      font-weight: 900;
+      font-size: $fontBig * 1.4;
+      line-height: 100%;
+      max-width: 650px;
+      @media only screen and (max-width: 900px) {
+        font-size: 5.18rem * 1.1;
+      }
+    }
+  }
 }
